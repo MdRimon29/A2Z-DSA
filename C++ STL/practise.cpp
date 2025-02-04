@@ -2,18 +2,13 @@
 using namespace std;
 int main()
 {
-    array<int, 5>arr={1,2,3,4,5};
+    set<int>st={1,2,5,7};
+
+    st.erase(st.begin(), next(st.begin(),2));
 
     //for each loop
-    for(auto i:arr)
+    for(auto i:st)
     {
         cout<<i<<" ";
-    }
-
-    string str="Rimon";
-
-    for(auto c:str)
-    {
-        cout<<c<<" ";
     }
 }
