@@ -3,8 +3,19 @@ using namespace std;
 
 array<int, 3>a;//->{0,0,0} when we dont declare array globally it contains all values 0
 
+//max size of 10^7 ->int,double,char
+int Arr[10000000];
+//max size of 10^8 ->bool
+bool Arr[100000000];
+
 int main()
 {
+    //max size of 10^6 ->int,double,char
+    int Arr[10000000];
+    //max size of 10^7 ->bool
+    bool Arr[100000000];
+
+
     //declare ->int arr[5];
 
     array<int, 3>arr;// -> {?,?,?} when we donot declare array locally then it contains garbage values
@@ -39,7 +50,7 @@ int main()
         cout<<*i<<" ";
     }
 
-    for(auto i=arr.rbegin(); i!=arr.rend(); i++)
+    for(auto i=arr.rbegin(); i!=arr.rend(); i++) //in second part we can also write i>arr.rend()
     {
         cout<<*i<<" ";
     }
@@ -48,5 +59,28 @@ int main()
     {
         cout<<*i<<" ";
     }
+
+    //for each loop
+    for(auto i:arr)
+    {
+        cout<<i<<" "; // 1 2 3 4 5
+    }
+    
+    
+    string str="Rimon";
+
+    for(auto c:str)
+    {
+        cout<<c<<" "; //R i m o n
+    }
+
+    //size
+    cout<<arr.size();
+
+    //first element
+    cout<<arr.front(); // arr.at(0)
+
+    //last element
+    cout<<arr.back(); // arr.at(arr.size()-1)
 
 }
