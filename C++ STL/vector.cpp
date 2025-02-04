@@ -73,8 +73,13 @@ int main()
     cout<<vect[2][2]<<endl; //->23
 
     //define 10 X 20 
-    vector<vector<int>> vec(10, vector<int>(20,0));
+    vector<vector<int>> v(10, vector<int>(20,0));
+    v.push_back(vector<int>(20,0));
+    cout<<v.size()<<endl; // 11
 
-    
+    v[2].push_back(1);
+
+    //define 10 x 20 x 30 // int arr[10][20][30]
+    vector<vector<vector<int>>>vec(10,vector<vector<int>>(20, vector<int>(30,0)));
 
 }
