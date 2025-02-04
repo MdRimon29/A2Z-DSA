@@ -42,6 +42,9 @@ int main()
     cout<<data2->doub<<endl;
     cout<<data2->ch<<endl;
 
+    //another way of defining
+    node data2= node(10,29.12,'R',"Data2");
+
     //another way of defining 
     node data3(15,29.123,'M',"Data3");
     cout<<data3.num<<" "<<data3.doub<<" "<<data3.ch<<" "<<data3.str<<endl;
