@@ -98,7 +98,8 @@ int main()
         cout<<it<<endl;
     }
 
-    st.size();
+    //finds how many times 2 occurs
+    st.count(2);
 
     ms.erase(ms.find(2)); 
 	ms.erase(ms.find(2), next(ms.find(2) , 1));
