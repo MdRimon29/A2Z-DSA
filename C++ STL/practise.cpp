@@ -2,27 +2,7 @@
 using namespace std;
 int main()
 {
-    multiset<int>ms;
-    ms.insert(1);
-    ms.insert(1);
-    ms.insert(3);
-    ms.insert(2);
-    ms.insert(5);
-    ms.insert(2);
-    ms.insert(4);
-    ms.insert(4);
-
-    for(auto it:ms)
-    {
-        cout<<it<<" ";
-    }
-
-    ms.erase(ms.find(2)); 
-	ms.erase(ms.find(2), next(ms.find(2) , 1));
-
-    for(auto it:ms)
-    {
-        cout<<it<<" ";
-    }
-
+    pair<int,int> pr = {1,2}; 
+	pair< pair<int,int>, int> pr2 = {{1,2}, 2}; 
+	cout << pr2.first.second << endl;
 }
