@@ -2,13 +2,27 @@
 using namespace std;
 int main()
 {
-    set<int>st={1,2,5,7};
+    multiset<int>ms;
+    ms.insert(1);
+    ms.insert(1);
+    ms.insert(3);
+    ms.insert(2);
+    ms.insert(5);
+    ms.insert(2);
+    ms.insert(4);
+    ms.insert(4);
 
-    st.erase(st.begin(), next(st.begin(),2));
-
-    //for each loop
-    for(auto i:st)
+    for(auto it:ms)
     {
-        cout<<i<<" ";
+        cout<<it<<" ";
     }
+
+    ms.erase(ms.find(2)); 
+	ms.erase(ms.find(2), next(ms.find(2) , 1));
+
+    for(auto it:ms)
+    {
+        cout<<it<<" ";
+    }
+
 }
