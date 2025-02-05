@@ -2,7 +2,10 @@
 using namespace std;
 int main()
 {
-    pair<int,int> pr = {1,2}; 
-	pair< pair<int,int>, int> pr2 = {{1,2}, 2}; 
-	cout << pr2.first.second << endl;
+    vector<int> vec={1, 6, 7, 1, 2, 1, 3};
+
+	auto it = find(vec.begin(), vec.end(), 2); 
+    int ind = it - vec.begin();
+
+	cout<<ind;
 }
