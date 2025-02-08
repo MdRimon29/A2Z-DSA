@@ -2,6 +2,8 @@
 using namespace std;
 
 //In bubble sort,push the maximum to the last index by the adjacent swaps
+//worst,avg time complexity is O(n^2)
+//best time complexity is O(n)
 
 void bubble_sort(int arr[], int n)
 {

@@ -2,6 +2,8 @@
 using namespace std;
 
 //insertion sort just take an element and place it in the correct index while compare with its left indexes
+//worst,avg time complexity is O(n^2)
+//best time complexity is O(n)
 
 void insertion_sort(int arr[], int n)
 {

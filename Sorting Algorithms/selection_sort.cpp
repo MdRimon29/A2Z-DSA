@@ -2,6 +2,7 @@
 using namespace std;
 
 //find the smallest element and swap it 
+//time complexity for all best worst and avg is O(n^2)
 
 void selection_sort(int arr[], int n)
 {
