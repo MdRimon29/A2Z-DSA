@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-void all_digits(int num)
+void count_digits(int num)
 {
     int count=0;
 
@@ -15,10 +15,20 @@ void all_digits(int num)
     cout<<"The number of digits are: "<<count<<endl;
 }
 
+
+//time complexity is log10(num) -->if divisible by 10
+void another_way_count_digit(int num)
+{
+    int count=(int)(log10(num)+1);
+    cout<<"The number of digits are: "<<count<<endl;
+}
+
 int main()
 {
     int number=7789;
-    all_digits(number);
+    count_digits(number);
+
+    another_way_count_digit(number);
 
     return 0;
 }
