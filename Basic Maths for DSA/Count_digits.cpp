@@ -7,7 +7,6 @@ void count_digits(int num)
 
     while(num>0)
     {
-        int remainder=num%10;
         num=num/10;
 
         count++;
