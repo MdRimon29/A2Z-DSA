@@ -6,7 +6,7 @@ int main()
     cin>>str;
 
     //pre storing
-    map<char,int>mpp;
+    unordered_map<char,int>mpp;
     for(int i=0; i<str.length(); i++)
     {
         mpp[str[i]]++;

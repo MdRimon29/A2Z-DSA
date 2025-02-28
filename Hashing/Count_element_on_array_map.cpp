@@ -8,15 +8,11 @@ int main()
     cin>>n;
 
     int arr[n];
+    unordered_map<int,int>mpp;
     for(int i=0; i<n; i++)
     {
         cin>>arr[i];
-    }
-
-    //pre-compute
-    map<int,int>mpp;
-    for(int i=0; i<n; i++)
-    {
+        //pre-compute
         mpp[arr[i]]++;
     }
 
