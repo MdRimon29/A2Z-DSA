@@ -24,6 +24,8 @@ vector<int> findUnionBrute(vector<int>&vec, vector<int>&vec2)
     return f_union;
 }
 
+// tc=O(n1+n2)
+// sc= O(n1+n2) -->for returning the answer
 vector<int> findUnionOptimal(vector<int>&vec, vector<int>&vec2)
 {
     int i=0; 
