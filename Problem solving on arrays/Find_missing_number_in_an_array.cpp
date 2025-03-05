@@ -59,6 +59,8 @@ int findNumberOptimal1(int n,vector<int>&vec)
     return sum-count;
 }
 
+// tc=O(n)
+// sc=O(1)
 int findNumberOptimal2(int n,vector<int>&vec)
 {
     int XOR1=0;
