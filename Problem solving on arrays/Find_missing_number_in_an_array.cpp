@@ -44,12 +44,42 @@ int findNumberBetter(int n,vector<int>&vec)
     return -1;
 }
 
+// tc=O(n)
+// sc=O(1)
+int findNumberOptimal1(int n,vector<int>&vec)
+{
+    int count=0;
+    for(auto it:vec)
+    {
+        count += it;
+    }
+    
+    int sum=(n*(n+1))/2;
+    
+    return sum-count;
+}
+
+int findNumberOptimal2(int n,vector<int>&vec)
+{
+    int XOR1=0;
+    int XOR2=0;
+
+    for(int i=0; i<vec.size(); i++)
+    {
+        XOR2=XOR2 ^ vec[i];
+        XOR1=XOR1 ^ (i+1);
+    }
+    XOR1 = XOR1 ^ n;
+
+    return XOR2^XOR1;
+}
+
 int main()
 {
-    vector<int>vec={1,2,3,4};
+    vector<int>vec={1,2,4,5};
     int n=5;
 
-    int number=findNumberBetter(n,vec);
+    int number=findNumberOptimal2(n,vec);
 
     cout<<"Missing number is: "<<number;
 }
