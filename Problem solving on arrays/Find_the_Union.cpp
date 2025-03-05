@@ -26,7 +26,47 @@ vector<int> findUnionBrute(vector<int>&vec, vector<int>&vec2)
 
 vector<int> findUnionOptimal(vector<int>&vec, vector<int>&vec2)
 {
+    int i=0; 
+    int j=0;
+    vector<int>unionArr;
+    while(i<vec.size() && j<vec2.size())
+    {
+        if(vec[i] <= vec2[j])
+        {
+            if(unionArr.size()==0 ||  unionArr.back() != vec[i])
+            {
+                unionArr.push_back(vec[i]);
+            }
+            i++;
+        }
+        else{
+            if(unionArr.size()==0 ||  unionArr.back() != vec2[j])
+            {
+                unionArr.push_back(vec2[j]);
+            }
+            j++;
+        }
+    }
 
+    while(j<vec2.size())
+    {
+        if(unionArr.size()==0 ||  unionArr.back() != vec2[j])
+        {
+            unionArr.push_back(vec2[j]);
+        }
+        j++;
+    }
+
+    while(i<vec.size())
+    {
+        if(unionArr.size()==0 ||  unionArr.back() != vec[i])
+        {
+            unionArr.push_back(vec[i]);
+        }
+        i++;
+    }
+
+    return unionArr;
 }
 
 int main()
