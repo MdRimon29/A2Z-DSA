@@ -57,10 +57,42 @@ int maxSubarray(vector<int>&vec) {
     return maximum;
 }
 
+vector<int> PrintmaxSubarray(vector<int>&vec) {
+    int sum=0;
+    int maximum=vec[0];
+    int left=0,right=0;
+    for(int i=0; i<vec.size(); i++)
+    {
+        if(sum==0){
+            left=i;
+        }
+
+        sum +=vec[i];
+
+        if(sum<0)
+        {
+            sum=0;
+        }
+        if(sum>maximum)
+        {
+            maximum=max(maximum,sum);
+            right=i;
+        }
+    }
+
+    return {left,right};
+}
+
 int main(){
     vector<int>vec={-2,1,-3,4,-1,-2,1,5,-3};
 
-    int result=maxSubarray(vec);
+    vector<int> result=PrintmaxSubarray(vec);
 
-    cout<<"Result is: "<<result<<endl;
+    //cout<<"Result is: "<<result<<endl;
+
+    //for print the maximum subarray
+    for(int i=result[0]; i<=result[1]; i++)
+    {
+        cout<<vec[i]<<" ";
+    }
 }
