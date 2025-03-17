@@ -32,11 +32,39 @@ int longestConsecutiveBrute(vector<int>&vec)
     return longest;
 }
 
+int longestConsecutiveBetter(vector<int>&vec)
+{ 
+    sort(vec.begin(),vec.end());
+    int longest=1,lastCount=0,lastElement=INT_MIN;
+
+    for(int i=0; i<vec.size(); i++)
+    {
+        if(vec[i]-1==lastElement)
+        {
+            lastCount ++;
+            lastElement=vec[i];
+        }
+        else if(vec[i]==lastElement)
+        {
+            continue;
+        }
+        else if(vec[i]-1 != lastElement)
+        {
+            lastCount=1;
+            lastElement=vec[i];
+        }
+
+        longest=max(longest,lastCount);
+    }
+
+    return longest;
+}
+
 int main()
 {
     vector<int>vec={102,4,100,1,101,3,2,1,1};
 
-    int result=longestConsecutiveBrute(vec);
+    int result=longestConsecutiveBetter(vec);
 
     cout<<"Longest consecutive is: "<<result<<endl;
 }
