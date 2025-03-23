@@ -45,12 +45,30 @@ int subarraySumBetter(vector<int>&vec,int k)
     return count;
 }
 
+int subarraySumOptimal(vector<int>&vec,int k)
+{
+    unordered_map<int,int>mpp;
+    mpp[0]=1;
+
+    int preSum=0,count=0;
+
+    for(int i=0; i<vec.size(); i++)
+    {
+        preSum += vec[i];
+        int sub=preSum-k;
+        count += mpp[sub];
+        mpp[preSum]+=1;
+    }
+
+    return count;
+}
+
 int main()
 {
     vector<int>vec={1,2,3};
     int k=3;
 
-    int result=subarraySumBetter(vec,k);
+    int result=subarraySumOptimal(vec,k);
 
     cout<<"Result is : "<<result<<endl;
 
