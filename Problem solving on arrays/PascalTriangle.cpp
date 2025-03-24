@@ -13,7 +13,7 @@ using namespace std;
 // sc=O(1)
 long long findNcR(int r,int c)
 {
-    int fact=1;
+    long long fact=1;
     for(int i=0; i<c; i++)
     {
         fact = fact * (r-i);
