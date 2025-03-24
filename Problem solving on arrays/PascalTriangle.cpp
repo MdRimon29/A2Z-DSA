@@ -33,6 +33,35 @@ void printNthRow(int r)
         ans=ans / i;
         cout<<ans<<" ";
     }
+    cout<<endl;
+}
+
+vector<int> generateRow(int row)
+{
+    long long result=1;
+    vector<int>ansRow;
+    ansRow.push_back(1);
+
+    for(int col=1; col<row; col++)
+    {
+        result=result * (row-col);
+        result=result / col;
+
+        ansRow.push_back(result);
+    }
+
+    return ansRow;
+}
+vector<vector<int>> printTriangle(int n)
+{
+    vector<vector<int>>ans;
+
+    for(int i=1; i<=n; i++)
+    {
+        ans.push_back(generateRow(i));
+    }
+
+    return ans;
 }
 
 int main()
@@ -43,4 +72,15 @@ int main()
     cout<<"Result is: "<<result<<endl;
 
     printNthRow(r);
+
+    vector<vector<int>>ans=printTriangle(r);
+
+    for(int i=0; i<ans.size(); i++)
+    {
+        for(int j=0; j<ans[i].size(); j++)
+        {
+            cout<<ans[i][j]<<" ";
+        }
+        cout<<endl;
+    }
 }
