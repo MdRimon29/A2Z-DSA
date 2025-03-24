@@ -22,10 +22,25 @@ long long findNcR(int r,int c)
     return fact;
 }
 
+void printNthRow(int r)
+{
+    int ans=1; 
+    cout<<ans<<" ";
+
+    for(int i=1; i<r; i++)
+    {
+        ans=ans * (r-i);
+        ans=ans / i;
+        cout<<ans<<" ";
+    }
+}
+
 int main()
 {
-    int r=5,c=2;
+    int r=5,c=3;
 
-    long long result=findNcR(r,c);
+    long long result=findNcR(r-1,c-1);
     cout<<"Result is: "<<result<<endl;
+
+    printNthRow(r);
 }
