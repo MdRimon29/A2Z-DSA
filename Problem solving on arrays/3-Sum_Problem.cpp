@@ -55,11 +55,48 @@ vector<vector<int>> threeSumBetter(vector<int>&vec)
     return vec3;
 }
 
+vector<vector<int>> threeSumOptimal(vector<int>&vec)
+{
+    int n=vec.size();
+    vector<vector<int>>vec2;
+    sort(vec.begin(),vec.end());
+
+    for(int i=0; i<n; i++)
+    {
+        if(i>0 && vec[i] == vec[i-1]) continue;
+        int j=i+1;
+        int k=n-1;
+
+        while(j<k)
+        {
+            int sum=vec[i]+vec[j]+vec[k];
+            if(sum>0)
+            {
+                k--;
+            }
+            else if(sum<0)
+            {
+                j++;
+            }
+            else{
+                vector<int>vec3={vec[i],vec[j],vec[k]};
+                vec2.push_back(vec3);
+                j++;
+                k--;
+                while(j<k && vec[j]==vec[j-1]) j++;
+                while(j<k && vec[k]==vec[k+1]) k--;
+            }
+        }
+    }
+
+    return vec2;
+}
+
 int main()
 {
     vector<int>vec={-1,0,1,2,-1,-4};
 
-    vector<vector<int>> result=threeSumBetter(vec);
+    vector<vector<int>> result=threeSumOptimal(vec);
 
     for(int i=0; i<result.size(); i++)
     {
