@@ -27,11 +27,39 @@ vector<vector<int>> threeSumBrute(vector<int>&vec)
     return ans;
 }
 
+vector<vector<int>> threeSumBetter(vector<int>&vec)
+{
+    set<vector<int>>st;
+    int n=vec.size();
+
+    for(int i=0; i<n; i++)
+    {
+        set<int>hash;
+        for(int j=i+1; j<n; j++)
+        {
+            int k=-(vec[i]+vec[j]);
+
+            if(hash.find(k) != hash.end())
+            {
+                vector<int>vec2={vec[i],vec[j],k};
+                sort(vec2.begin(),vec2.end());
+
+                st.insert(vec2);
+            }
+            hash.insert(vec[j]);
+        }
+    }
+
+    vector<vector<int>>vec3(st.begin(),st.end());
+
+    return vec3;
+}
+
 int main()
 {
     vector<int>vec={-1,0,1,2,-1,-4};
 
-    vector<vector<int>> result=threeSumBrute(vec);
+    vector<vector<int>> result=threeSumBetter(vec);
 
     for(int i=0; i<result.size(); i++)
     {
