@@ -61,11 +61,56 @@ vector<vector<int>> fourSumBetter(vector<int>&vec)
     return vec3;
 }
 
+vector<vector<int>> fourSumOptimal(vector<int>&vec)
+{
+    int n=vec.size();
+    vector<vector<int>>vec2;
+    sort(vec.begin(),vec.end());
+
+    for(int i=0; i<n; i++)
+    {
+        if(i>0 && vec[i]==vec[i-1]) continue;
+        for(int j=i+1; j<n; j++)
+        {
+            if(j>i+1 && vec[j]==vec[j-1]) continue;
+            int k=j+1;
+            int l=n-1;
+            
+            while(k<l)
+            {
+                long long sum=vec[i];
+                sum +=vec[j];
+                sum +=vec[k];
+                sum +=vec[l];
+                if(sum<0)
+                {
+                    k++;
+                }
+                else if(sum>0)
+                {
+                    l--;
+                }
+                else
+                {
+                    vector<int>vec3={vec[i],vec[j],vec[k],vec[l]};
+                    vec2.push_back(vec3);
+
+                    k++;
+                    l--;
+                    while(k<l && vec[k]==vec[k-1]) k++;
+                    while(k<l && vec[l]==vec[l+1]) l--;
+                }
+            }
+        }
+    }
+    return vec2;
+}
+
 int main()
 {
     vector<int>vec={1,0,-1,0,-2,2};
 
-    vector<vector<int>> result=fourSumBetter(vec);
+    vector<vector<int>> result=fourSumOptimal(vec);
 
     for(int i=0; i<result.size(); i++)
     {
