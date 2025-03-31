@@ -42,6 +42,8 @@ int countSubarrayBetter(vector<int>&vec,int k)
     return count;
 }
 
+// tc=O(n.1) -->for worst case it would be O(n.log(n))
+// sc=O(n) -->every time it added something new to the map by using mpp[XOR]++;
 int countSubarrayOptimal(vector<int>&vec,int k)
 {
     unordered_map<int,int>mpp;
