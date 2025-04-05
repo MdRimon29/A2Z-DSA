@@ -65,7 +65,7 @@ int countPair(vector<int>&nums,int low,int mid,int high)
     int count=0;
     for(int i=low; i<=mid; i++)
     {
-        while(right<=high && nums[i]>2*nums[right])
+        while(right<=high && nums[i]>2LL *nums[right])
         {
             right++;
         }
