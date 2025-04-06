@@ -39,6 +39,9 @@ int main()
 
     int result=findLowerBoundOptimal(vec,x);
 
+    //In coding round
+    int res=lower_bound(vec.begin(),vec.end(),x)-vec.begin();
+
     cout<<"Lower bound is: "<<result<<endl;
 
     return 0;
