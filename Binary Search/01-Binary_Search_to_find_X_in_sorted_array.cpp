@@ -1,6 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// use mid=low+(high-low)/2 for overflow cases.
+// tc=O(log(n))
+// sc=O(1)
 int search(vector<int>& nums, int target) {
     int low=0;
     int high=nums.size()-1;
@@ -21,6 +24,8 @@ int search(vector<int>& nums, int target) {
     }
     return -1;
 }
+
+// recursive one
 
 int binarySearch(vector<int>&nums,int low,int high,int target)
 {
