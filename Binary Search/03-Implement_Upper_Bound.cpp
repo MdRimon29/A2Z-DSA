@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int findLowerBoundBrute(vector<int>&vec,int target)
+int findUpperBoundBrute(vector<int>&vec,int target)
 {
     int ans=vec.size();
     for(int i=0; i<=vec.size(); i++)
@@ -14,7 +14,7 @@ int findLowerBoundBrute(vector<int>&vec,int target)
     return ans;
 }
 
-int findLowerBoundOptimal(vector<int>&vec,int target)
+int findUpperBoundOptimal(vector<int>&vec,int target)
 {
     int low=0,high=vec.size()-1,ans=vec.size();
     
@@ -38,7 +38,7 @@ int main()
     vector<int>vec={3,5,8,9,15,19};
     int x=9;
 
-    int result=findLowerBoundOptimal(vec,x);
+    int result=findUpperBoundOptimal(vec,x);
 
     //In coding round
     int res=upper_bound(vec.begin(),vec.end(),x)-vec.begin();
