@@ -8,16 +8,17 @@ int findMinimum(vector<int>&nums)
     while(low<=high)
     {
         int mid=(low+high)/2;
-        //if full array is sorted
-        if(nums[low]<=nums[high])
-        {
-            mini=min(mini,nums[low]);
+        // if full array is sorted
+        if (nums[low] <= nums[high]) {
+            mini = min(mini, nums[low]);
             break;
         }
 
         //if array contain duplicates
+        // then write the portion which one is given below and remove upper portion
         if(nums[low]==nums[mid] && nums[mid]==nums[high])
         {
+            mini = min(mini, nums[low]);
             low=low+1;
             high=high-1;
             continue;
