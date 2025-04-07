@@ -14,6 +14,15 @@ int findMinimum(vector<int>&nums)
             mini=min(mini,nums[low]);
             break;
         }
+
+        //if array contain duplicates
+        if(nums[low]==nums[mid] && nums[mid]==nums[high])
+        {
+            low=low+1;
+            high=high-1;
+            continue;
+        }
+
         //left sorted
         if(nums[low]<=nums[mid])
         {
