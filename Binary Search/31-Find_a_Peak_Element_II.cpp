@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+//tc is O(n*log(m))
+
 int maxInCol(vector<vector<int>>& mat,int row,int col,int mid)
 {
     int max=INT_MIN;
