@@ -9,7 +9,9 @@ bool searchMatrix(vector<vector<int>>& matrix, int target) {
     while(low<=high)
     {
         int mid=low+(high-low)/2;
-        int row=mid/m;
+
+        //here we convert a 1d array to 2d matrix
+        int row=mid/m;  
         int column=mid%m;
         int value=matrix[row][column];
 
