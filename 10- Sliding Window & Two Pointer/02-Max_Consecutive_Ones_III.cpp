@@ -23,6 +23,7 @@ int longestOnesBrute(vector<int>& nums, int k){
 }
 
 // worst tc->O(n+n)
+// sc->O(1)
 int longestOnes(vector<int>& nums, int k) {
     int left=0,right=0;
     int n=nums.size();
