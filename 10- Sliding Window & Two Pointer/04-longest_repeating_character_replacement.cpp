@@ -28,7 +28,7 @@ int characterReplacementBrute(string s, int k){
 }
 
 // tc->O(n)
-// sc->O(3) ~ O(1) -->as it is constant size complexity
+// sc->O(26) ~ O(1) -->as it is constant size complexity
 int characterReplacement(string s, int k) {
     int left=0,right=0;
     int n=s.size();
