@@ -1,6 +1,26 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+int numberOfSubstringsBrute(string s){
+    int n=s.size();
+    int count=0;
+
+    for(int i=0; i<s.size(); i++)
+    {
+        unordered_map<int,int>mpp;
+        for(int j=i; j<s.size(); j++)
+        {
+            mpp[s[j]-'a']=1;
+            if(mpp[0]+mpp[1]+mpp[2]==3)
+            {
+                count +=1;
+            }
+        }
+    }
+
+    return count;
+}
+
 int numberOfSubstrings(string s) {
     int n=s.size();
     unordered_map<int,int>mpp={
@@ -26,7 +46,7 @@ int main()
 {
     string s="abcabc";
 
-    int result=numberOfSubstrings(s);
+    int result=numberOfSubstringsBrute(s);
 
     cout<<result<<endl;
 
