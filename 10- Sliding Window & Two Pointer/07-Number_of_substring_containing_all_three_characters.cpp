@@ -21,6 +21,27 @@ int numberOfSubstringsBrute(string s){
     return count;
 }
 
+int numberOfSubstringsBetter(string s){
+    int n=s.size();
+    int count=0;
+
+    for(int i=0; i<s.size(); i++)
+    {
+        unordered_map<int,int>mpp;
+        for(int j=i; j<s.size(); j++)
+        {
+            mpp[s[j]-'a']=1;
+            if(mpp[0]+mpp[1]+mpp[2]==3)
+            {
+                count += (n-j);                
+                break;
+            }
+        }
+    }
+
+    return count;
+}
+
 int numberOfSubstrings(string s) {
     int n=s.size();
     unordered_map<int,int>mpp={
@@ -46,7 +67,7 @@ int main()
 {
     string s="abcabc";
 
-    int result=numberOfSubstringsBrute(s);
+    int result=numberOfSubstrings(s);
 
     cout<<result<<endl;
 
