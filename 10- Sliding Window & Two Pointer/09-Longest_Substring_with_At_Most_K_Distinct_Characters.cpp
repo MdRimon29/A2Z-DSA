@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-int longestSubstring(string s,int k){
+int longestSubstringBrute(string s,int k){
     int maxi=0;
     unordered_map<char,int>mpp;
 
@@ -20,6 +20,32 @@ int longestSubstring(string s,int k){
             }
         }
     }
+    return maxi;
+}
+
+int longestSubstring(string s,int k){
+    int l=0,r=0,maxi=0;
+    unordered_map<char,int>mpp;
+
+    while(r<s.size())
+    {
+        mpp[s[r]]++;
+
+        if(mpp.size()>k)
+        {
+            mpp[s[l]]--;
+            if(mpp[s[l]]==0) mpp.erase(mpp[s[l]]);
+            l++;
+        }
+
+        if(mpp.size()<=k)
+        {
+            maxi=max(maxi,(r-l+1));
+        }
+
+        r++;
+    }
+
     return maxi;
 }
 
