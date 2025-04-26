@@ -5,9 +5,8 @@ string minWindow(string s, string t) {
     if (s.empty() || t.empty()) return "";
     
     int l=0,r=0,n=s.size(),m=t.size();
-    unordered_map<char,int>mpp;
+    array<int, 128> mpp = {};   //we use array because array is faster than unordered_map,initialize 128 because its only contain English letter
     int minLen=INT_MAX,start=-1,count=0;
-    string str;
 
     for(int i=0; i<m; i++)
     {
@@ -17,17 +16,20 @@ string minWindow(string s, string t) {
     while(r<s.size()){
         if(mpp[s[r]]>0){
             count++;
-            mpp[s[r]]--;
         }
+        mpp[s[r]]--;
 
         while(count==m)
         {
             if((r-l+1)<minLen){
-                minLen=min(minLen,(r-l+1));
+                minLen=r-l+1;
                 start=l;
             }
-            mpp[s[l]]--;
-            if(mpp[s[l]]>0) count=count-1;
+            mpp[s[l]]++;
+            if(mpp[s[l]]>0) {
+                count--;
+            }
+            l++;
         }
         r=r+1;
     }
