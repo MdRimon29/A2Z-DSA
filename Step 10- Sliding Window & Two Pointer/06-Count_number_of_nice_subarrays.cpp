@@ -25,8 +25,8 @@ int numSubarraysWithSumGoal(vector<int>& nums, int goal){
     return count;
 }
 
-// tc=O(2*2n)
-// sc=O(1)
+//  tc=O(2*2n)
+//  sc=O(1)
 int numSubarraysWithSum(vector<int>& nums, int goal) {
     int res1=numSubarraysWithSumGoal(nums,goal);
     int res2=numSubarraysWithSumGoal(nums,goal-1);
