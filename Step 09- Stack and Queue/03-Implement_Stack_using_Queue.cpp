@@ -4,6 +4,7 @@ using namespace std;
 class Stack {
 public:
     queue<int>q;
+    //tc=O(n)
     void Push(int x)
     {
         int len=q.size();
@@ -14,12 +15,14 @@ public:
             q.pop();
         }
     }
+    //tc=O(1)
     int Pop()
     {
         int n=q.front();
         q.pop();
         return n;
     }
+    //tc=O(1)
     int Top()
     {
         return q.front();
