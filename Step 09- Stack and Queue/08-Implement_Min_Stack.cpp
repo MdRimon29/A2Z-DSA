@@ -3,38 +3,68 @@ using namespace std;
 
 //tc=O(1)
 //sc=O(2*n)
+// class MinStack {
+// public:
+//     MinStack() {
+        
+//     }
+//     stack<int>st;
+//     stack<int>minmm;
+    
+//     void push(int val) {
+//         if(minmm.empty()){
+//             minmm.push(val);
+//         }
+//         else if(minmm.top()>=val){
+//             minmm.push(val);
+//         }
+//         else{
+//             minmm.push(minmm.top());
+//         }
+//         st.push(val);
+//     }
+    
+//     void pop() {
+//         st.pop();
+//         minmm.pop();
+//     }
+    
+//     int top() {
+//         return st.top();
+//     }
+    
+//     int getMin() {
+//         return minmm.top();
+//     }
+// };
+
 class MinStack {
 public:
-    MinStack() {
-        
-    }
-    stack<int>st;
-    stack<int>minmm;
+    MinStack() {}
+    
+    stack<pair<int,int>>st;
     
     void push(int val) {
-        if(minmm.empty()){
-            minmm.push(val);
-        }
-        else if(minmm.top()>=val){
-            minmm.push(val);
+        int minm;
+        if(st.empty()){
+            minm=val;
         }
         else{
-            minmm.push(minmm.top());
+            minm=min(val,st.top().second);
         }
-        st.push(val);
+        st.push({val,minm});
     }
     
     void pop() {
         st.pop();
-        minmm.pop();
     }
     
     int top() {
-        return st.top();
+        return st.top().first;
     }
     
     int getMin() {
-        return minmm.top();
+        return st.top().second;
     }
 };
 
