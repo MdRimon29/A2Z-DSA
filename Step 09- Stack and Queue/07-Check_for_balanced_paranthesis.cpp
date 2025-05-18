@@ -1,6 +1,8 @@
 #include<bits/stdc++.h>
 using namespace std;
 
+// tc=O(n)
+// sc=O(n)
 bool isValid(string s) {
     stack<char>st;
     for(int i=0; i<s.size(); i++)
